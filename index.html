@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <small style="color:red;padding-top:20px">md anamul hossen</small>
+    <h1>calculator :</h1>
+    <input type="text" name="" id="calculate" value="" placeholder="calculator is here">
+    <div class="bouton">
+      <button id="submit">submit</button>
+    <button id="reset">reset</button>
+    </div>
+    <p></p>
+  </div>
+  <script>
+    let p=document.querySelector('p');
+    let input=document.querySelector("input");
+    let submit=document.getElementById("submit");
+    let reset=document.getElementById("reset");
+
+    input.addEventListener("keypress",function(e){
+      
+      let key =e.target.value;
+     
+      input.value =key;  
+    })
+    submit.addEventListener("click",function(){
+      if(input.value==""){
+        alert("input a number");
+      }
+     
+       else{
+        input.value=eval(input.value);
+        p.innerHTML="net value : "+eval(input.value);
+       }
+       if(input.value>60000000000000){
+        p.style.fontSize="16px";
+       }
+      
+     
+    })
+    reset.addEventListener("click", function(){
+      input.value="";
+      p.innerHTML="net value : "+"0";
+
+    })
+  </script>
+</body>
+</html>
